@@ -1,0 +1,75 @@
+/**
+* Colors
+*/
+/**
+* Base elements
+*/
+html, body {
+  height: 100%; }
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-weight: 100;
+  font-family: 'Lato'; }
+
+h1 {
+  font-weight: 400; }
+
+p {
+  font-size: 17px;
+  font-weight: 100; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    font-weight: 400; }
+
+strong {
+  font-weight: 700; }
+
+ul {
+  letter-spacing: 0.1em; }
+
+li {
+  margin-bottom: 8px; }
+
+/**
+* Containers.
+*/
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 10%; }
+
+.content {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 15px; }
+
+.wrapper {
+  clear: both;
+  display: block;
+  margin: 50px 0; }
+
+.center {
+  text-align: center; }
+
+/**
+* Buttons.
+*/
+.button {
+  display: inline-block;
+  background: #04477c;
+  color: white;
+  padding: 10px 20px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin: 10px;
+  margin-left: 0;
+  cursor: pointer; }
+  .button:hover {
+    background: rgba(4, 71, 124, 0.8); }
+
+/*# sourceMappingURL=app.css.map */
