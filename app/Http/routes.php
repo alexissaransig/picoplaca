@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Homepage route configuration.
+Route::get('/', 'PagesController@home');
+
+// Schedule route configuration.
+Route::get('schedule', 'ScheduleController@schedule');
