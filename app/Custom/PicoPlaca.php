@@ -1,7 +1,5 @@
 <?php namespace App\Custom;
 
-use League\Flysystem\Exception;
-
 /**
  * Class PicoPlaca
  * @package App\Custom
@@ -27,12 +25,18 @@ class PicoPlaca {
       'time' => $time
     );
     $response->type = 'success';
-    $response->message = 'Hurray! You can run on the road.';
+    $response->message = 'Hooray! you can run on the road.';
+
+    if ($license == "" || $date == "" || $time == "") {
+      $response->type = 'warning';
+      $response->message = 'All the fields are required.';
+      return $response;
+    }
 
     // Verifies the license length.
     if (strlen($license) != 7) {
       $response->type = 'warning';
-      $response->message = 'Sorry, the entered license plate "' . $license . '" is not correct.';
+      $response->message = 'Sorry, the entered license plate "' . $license . '" is not valid.';
     }
     else {
       // Loads the current schedule.
@@ -40,16 +44,17 @@ class PicoPlaca {
       // Gets the day name from the provided date.
       $day = date("l", strtotime($date));
 
-      // Gets the last digit of the license.
-      try {
-        $digit = intval(substr($license, -1));
-      } catch (Exception $e) {
-        $response->type = 'warning';
-        $response->message = 'Sorry, the entered license plate "' . $license . '" is not correct.';
-      }
+      // Gets the last digit of the license.try {
+      $digit = substr($license, -1);
+      $response->digit = $digit;
 
+      // Validates that the last digit is a numeric.
+      if (!is_numeric($digit)) {
+        $response->type = 'warning';
+        $response->message = 'Sorry, the entered license plate "' . $license . '" is not valid.';
+      }
       // Check the day and hours for availability.
-      if (array_key_exists($day, $schedule->days) && in_array($digit, $schedule->days[$day])) {
+      elseif (array_key_exists($day, $schedule->days) && in_array($digit, $schedule->days[$day])) {
         $fail = FALSE;
         if (($time >= $schedule->hours[0][0] && $time <= $schedule->hours[0][1])) {
           $fail = TRUE;
