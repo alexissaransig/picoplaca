@@ -1,45 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layout')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
+@section('content')
+    <div class="text-center">
+        <p>Please, select an option</p>
+        <div class="wrapper">
+            <a href="{{ action("PicoPlacaController@picoplaca") }}" class="btn btn-default">Check my license</a>
+            <a href="{{ action("ScheduleController@schedule") }}" class="btn btn-default">See schedule</a>
         </div>
-    </body>
-</html>
+    </div>
+@stop

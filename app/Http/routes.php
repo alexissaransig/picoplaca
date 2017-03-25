@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Homepage route configuration.
+Route::get('/', 'PagesController@home');
+
+// Schedule route configuration.
+Route::get('schedule', 'ScheduleController@schedule');
+
+// PicoPlaca main Form route configuration.
+Route::get('picoplaca', 'PicoPlacaController@picoplaca');
+
+// Verify route configuration.
+Route::post('verify', 'PicoPlacaController@verify');
