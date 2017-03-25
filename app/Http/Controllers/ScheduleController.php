@@ -2,50 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Custom\PicoPlaca;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+/**
+ * Class ScheduleController
+ * @package App\Http\Controllers
+ */
 class ScheduleController extends Controller
 {
 
   /**
-   * Controller - Function used to list the custom schedule.
+   * Function used to list the custom schedule.
    *
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
   public function schedule()
   {
-    $info = $this->getSchedule();
+    // Gets schedule information from PicoPlaca Class.
+    $pico_placa = new PicoPlaca();
+    $info = $pico_placa->getSchedule();
 
     // Render the values using the provided template.
     return view('schedule.schedule-list', array(
       'hours' => $info->hours,
       'days' => $info->days)
     );
-  }
-
-  /**
-   * Helper function - Returns the schedule.
-   *
-   * @return \stdClass
-   */
-  public function getSchedule()
-  {
-    $response = new \stdClass();
-
-    // Custom values for Hours and Days.
-    // These values could be gotten from another services.
-    $response->hours = array ([7, 9], [18, 20]);
-
-    $response->days = array (
-      'Monday' => [1, 2],
-      'Tuesday' => [3, 4],
-      'Wednesday' => [5, 6],
-      'Thursday' => [7, 8],
-      'Friday' => [9, 0]
-    );
-
-    return $response;
   }
 }
