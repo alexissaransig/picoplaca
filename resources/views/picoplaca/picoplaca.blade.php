@@ -16,18 +16,18 @@
         <form action="/verify" method="post">
             <div class="form-group">
                 <label for="license">License</label>
-                <input type="text" name="license" id="license" class="form-control" placeholder="ABC1234" required>
+                <input type="text" name="license" id="license" class="form-control" placeholder="ABC1234" >
             </div>
 
             <div class="form-group">
                 <label for="date">Date</label>
-                <input type="date" name="date" id="date" class="form-control" required>
+                <input type="date" name="date" id="date" class="form-control" >
             </div>
 
             <div class="form-group">
                 <label for="time">Hour</label>
                 <input type="number" name="time" id="time" min="0" max="23" class="form-control" placeholder="0 to 23"
-                       required>
+                       >
             </div>
 
             <div class="form-group">
