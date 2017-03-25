@@ -6,9 +6,6 @@
             <div class="alert alert-{{ $result->type }}">
                 {{ $result->message }}
             </div>
-            <div>
-                {{ print_r($result) }}
-            </div>
         @endif
     </div>
 
